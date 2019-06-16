@@ -1,0 +1,15 @@
+html, body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #484848;
+}
+.main {
+    width: 90%;
+    margin: 0 auto;
+}
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+.white {
+    color: white;
+}

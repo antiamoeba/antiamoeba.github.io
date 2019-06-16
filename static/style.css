@@ -1,0 +1,149 @@
+html, body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.picture_frame {
+    position: relative;
+    box-sizing: border-box;
+    max-width: 800px;
+    padding: 10px;
+    margin: 40px auto;
+    border: 1px solid #cccccc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.picture_frame img {
+    width: 100%;
+}
+.picture_frame .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    text-align: center;
+    font-size: 64px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.button {
+    padding: 10px;
+    display: inline-block;
+    border: 1px solid black;
+}
+.button:hover {
+    background-color: #f2f2f2;
+}
+.buttons {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+[url]:hover {
+    cursor: pointer;
+}
+
+.frame {
+    width: 300px;
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    vertical-align: top;
+}
+.frame img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.frame .title {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+.frame .subtitle {
+    font-size: 0.9em;
+}
+.frame .pretitle {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #3e7fc4;
+}
+
+
+.banner {
+    height: 600px;
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.banner .main {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: #3e7fc4;
+}
+
+#me_frame {
+    box-sizing: border-box;
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#me {
+    width: 100%;
+    object-fit: cover;
+}
+
+.left {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 50%;
+    height: 100%;
+}
+
+#text_frame {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    color: white;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5em;
+}
+
+.right {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 50%;
+    height: 100%;
+}
+
+
+#projs {
+    margin-left: 60px;
+    margin-right: 60px;
+}
+#projs a {
+    text-decoration: none;
+    color:inherit;
+    outline: none;
+}
+
+a .frame:hover {
+    color: grey;
+}
