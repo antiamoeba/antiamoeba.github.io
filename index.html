@@ -3,30 +3,60 @@
         <title>Dorian Chan</title>
         <style>
             body {
-                font-family:Arial, Helvetica, sans-serif;
+                font-family: Arial, Helvetica, sans-serif;
+                color: #4f4f4f;
+            }
+            h1, b, h3 {
+                color: #2f2f2f;
             }
             .content {
                 margin: 0 auto;
                 max-width: 800px;
             }
-            .profile_pic {
+            #profile_pic {
                 width: 200px;
             }
+            #main_left {
+            }
+            #main {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+            }
+            #main_right {
+                padding-left: 20px;
+            }
+
         </style>
     </head>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-66PZ9T1D90"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-66PZ9T1D90');
+    </script>
+
     <body>
         <div class="content">
-            <h1>Dorian Chan</h1>
-            <img src="images/me.jpg" class="profile_pic"></img>
-
-            <p>I'm a PhD student in the Computer Science Department at Carnegie Mellon University,
-                where I currently work on computational imaging problems. Aside from my research,
-                I'm generally interested in problems in computer graphics and computational photography. 
-                I'm advised by <a href="http://www.cs.cmu.edu/~motoole2/">Matthew P. O'Toole</a>.</p>
-            <p>I quite enjoy <a href="https://fishoak.com/">fishing</a>. I'm also a big Denver Nuggets fan.</p>
-            <p>drop me a line: dychan@andrew.cmu.edu</p>
+            <div id="main">
+                <div id="main_left">
+                    <img src="images/me.jpg" id="profile_pic"></img>
+                </div>
+                <div id="main_right">
+                    <h1>Dorian Chan</h1>
+                    <p>I'm a PhD student in the Computer Science Department at Carnegie Mellon University,
+                        where I currently work on computational imaging problems. I'm advised by <a href="http://www.cs.cmu.edu/~motoole2/">Matthew P. O'Toole</a>.</p>
+                    <p>I quite enjoy <a href="https://fishoak.com/">fishing</a>. I'm also a big Denver Nuggets fan.</p>
+                    <p>drop me a line: <b>dychan@andrew.cmu.edu</b></p>
+                </div>
+            </div>
 
             <h3>Some of my past work:</h3>
+            <p>My current research focuses on the applications of wave optics to computer vision problems. In the past, I've worked on non-line-of-sight imaging, HDR tonemapping, and reflectance capture.</p>
             <p>
                 <div><b><a href="https://imaging.cs.cmu.edu/vibration/">Dual-Shutter Optical Vibration Sensing</a></b></div>
                 <div>Mark Sheinin, Dorian Chan, Matthew O'Toole, Srinivasa Narasimhan</div>
