@@ -15,8 +15,10 @@
             }
             #profile_pic {
                 width: 200px;
+                clip-path: circle();
             }
             #main_left {
+                flex-grow: 1;
             }
             #main {
                 display: flex;
@@ -25,6 +27,24 @@
             }
             #main_right {
                 padding-left: 20px;
+                flex-grow: 2;
+            }
+            #main_right h1 {
+                margin-top: 0px;
+            }
+            .paper {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-bottom: 30px;
+            }
+            .paper_left {
+                padding-right: 20px;
+            }
+            .paper_left > img {
+                width: 100px;
+                height: 80px;
+                object-fit: cover;
             }
 
         </style>
@@ -48,46 +68,74 @@
                 </div>
                 <div id="main_right">
                     <h1>Dorian Chan</h1>
-                    <p>I'm a PhD student in the Computer Science Department at Carnegie Mellon University,
-                        where I currently work on computational imaging problems. I'm advised by <a href="http://www.cs.cmu.edu/~motoole2/">Matthew P. O'Toole</a>.</p>
-                    <p>I'm also currently one of the department ombudspersons. Please feel free to reach out if there's anything you'd like to chat about!</p>
-                    <p>I quite enjoy <a href="https://fishoak.com/">fishing</a>. I'm also a big Denver Nuggets fan.</p>
-                    <p>drop me a line: <b>dychan@andrew.cmu.edu</b></p>
+                    <div>| Computational Imaging Researcher |</div>
+                    <div>| Fishing Devotee | | Musician Wannabe |</div>
                 </div>
             </div>
+            <br/>
+
+            <p>I'm a PhD student in the Computer Science Department at Carnegie Mellon University,
+                where I currently work on computational imaging problems. I'm advised by <a href="http://www.cs.cmu.edu/~motoole2/">Matthew P. O'Toole</a>.</p>
+            <p>I'm also currently one of the department ombudspersons. Please feel free to reach out if there's anything you'd like to chat about!</p>
+            <p>I quite enjoy <a href="https://fishoak.com/">fishing</a>. I'm also a big Denver Nuggets fan.</p>
+            <p>drop me a line: <b>dychan@andrew.cmu.edu</b></p>
 
             <h3>Some of my past work:</h3>
-            <p>My current research focuses on the applications of wave optics to computer vision problems. In the past, I've worked on non-line-of-sight imaging, HDR tonemapping, and reflectance capture.</p>
-            <p>
-                <div><b><a href="https://imaging.cs.cmu.edu/vibration/">Dual-Shutter Optical Vibration Sensing</a></b></div>
-                <div>Mark Sheinin, Dorian Chan, Matthew O'Toole, Srinivasa Narasimhan</div>
-                <div><i>CVPR 2022</i> - <span style="color:red">Oral, Best Paper Honorable Mention (~Top 2 paper)!!</span></div>
-            </p>
-            <p>
-                <div><b><a href="https://imaging.cs.cmu.edu/holocurtains/">Holocurtains: Programming Light Curtains via Binary Holography </a></b></div>
-                <div>Dorian Chan, Srinivasa Narasimhan, Matthew O'Toole</div>
-                <div><i>CVPR 2022</i></div>
-            </p>
-            <p>
-                <div><b><a href="https://arxiv.org/abs/2008.02787">Efficient Non-Line-of-Sight Imaging from Transient Sinograms</a></b></div>
-                <div>Mariko Isogawa, Dorian Yao Chan, Ye Yuan, Kris Kitani, Matthew O'Toole</div>
-                <div><i>ECCV 2020</i></div>
-            </p>
-            <p>
-                <div><b><a href="https://dl.acm.org/doi/abs/10.1145/3388770.3407415">Bound-Constrained Optimized Dynamic Range Compression</a></b></div>
-                <div>Dorian Yao Chan, James F. O'Brien </div>
-                <div><i>SIGGRAPH'20 Posters</i> - <span style="color:red">ACM Student Research Competition winner!!</span></div>
-            </p>
-            <p>
-                <div><b><a href="https://ieeexplore.ieee.org/abstract/document/8717158">Brain-Computer Interface in Virtual Reality</a></b></div>
-                <div>Reza Abbasi-Asl, Mohammad Keshavarzi, Dorian Yao Chan</div>
-                <div><i>NER'19</i></div>
-            </p>
-            <p>
-                <div><b><a href="http://graphics.berkeley.edu/papers/Albert-ASV-2018-06/">Approximate svBRDF Estimation From Mobile Phone Video</a></b></div>
-                <div>Rachel A. Albert, Dorian Yao Chan, Dan B Goldman, James F. O'Brien </div>
-                <div><i>EGSR 2018</i></div>
-            </p>
+            <div class="paper">
+                <div class="paper_left"><img src="papers/icon_vibration.png" /></div>
+                
+                <div class="paper_right">
+                    <div><b><a href="https://imaging.cs.cmu.edu/vibration/">Dual-Shutter Optical Vibration Sensing</a></b></div>
+                    <div>Mark Sheinin, <b>Dorian Chan</b>, Matthew O'Toole, Srinivasa Narasimhan</div>
+                    <div><i>CVPR 2022</i> - <span style="color:red">Oral, Best Paper Honorable Mention (~Top 2 paper)!!</span></div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper_left"><img src="papers/icon_holocurtains.png" /></div>
+                
+                <div class="paper_right">
+                    <div><b><a href="https://imaging.cs.cmu.edu/holocurtains/">Holocurtains: Programming Light Curtains via Binary Holography </a></b></div>
+                    <div><b>Dorian Chan</b>, Srinivasa Narasimhan, Matthew O'Toole</div>
+                    <div><i>CVPR 2022</i></div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper_left"><img src="papers/icon_sinogram.png" /></div>
+                
+                <div class="paper_right">
+                    <div><b><a href="https://arxiv.org/abs/2008.02787">Efficient Non-Line-of-Sight Imaging from Transient Sinograms</a></b></div>
+                    <div>Mariko Isogawa, <b>Dorian Yao Chan</b>, Ye Yuan, Kris Kitani, Matthew O'Toole</div>
+                    <div><i>ECCV 2020</i></div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper_left"><img src="papers/icon_hdr.png" /></div>
+                
+                <div class="paper_right">
+                    <div><b><a href="https://dl.acm.org/doi/abs/10.1145/3388770.3407415">Bound-Constrained Optimized Dynamic Range Compression</a></b></div>
+                    <div><b>Dorian Yao Chan</b>, James F. O'Brien </div>
+                    <div><i>SIGGRAPH'20 Posters</i> - <span style="color:red">ACM Student Research Competition winner!!</span></div>
+            
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper_left"><img src="papers/icon_bci.png" /></div>
+                
+                <div class="paper_right">
+                    <div><b><a href="https://ieeexplore.ieee.org/abstract/document/8717158">Brain-Computer Interface in Virtual Reality</a></b></div>
+                    <div>Reza Abbasi-Asl, Mohammad Keshavarzi, <b>Dorian Yao Chan</b></div>
+                    <div><i>NER'19</i></div>
+                </div>
+            </div>
+            <div class="paper">
+                <div class="paper_left"><img src="papers/icon_svbrdf.png" /></div>
+                
+                <div class="paper_right">
+                    <div><b><a href="http://graphics.berkeley.edu/papers/Albert-ASV-2018-06/">Approximate svBRDF Estimation From Mobile Phone Video</a></b></div>
+                    <div>Rachel A. Albert, <b>Dorian Yao Chan</b>, Dan B Goldman, James F. O'Brien </div>
+                    <div><i>EGSR 2018</i></div>
+                </div>
+            </div>
 
             <!-- <h3>Other:</h3>
             <p>
