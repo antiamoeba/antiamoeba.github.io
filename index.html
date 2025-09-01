@@ -33,21 +33,24 @@
             #main_right h1 {
                 margin-top: 0px;
             }
+            .paperc {
+                margin-bottom: 30px;
+            }
             .paper {
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                margin-bottom: 30px;
             }
             .paper_left {
                 padding-right: 20px;
             }
             .paper_left > img {
                 width: 120px;
+                max-height: 100px;
                 object-fit: cover;
                 border: 1px solid gray;
             }
-            .paper_right > p {
+            .paperc > p {
                 color: #666666;
             }
 
@@ -94,105 +97,149 @@
             
             <!-- <p><b style="color:red">I am looking for academic or industry jobs starting Summer or Fall 2025. Let me know if you have any leads!</b></p> -->
             <h3>Some of my past work:</h3>
-            <div class="paper">
-                <div class="paper_left"><img src="papers/projector_both.svg" /></div>
-                
-                <div class="paper_right">
-                    <div><b><a href="holodepth">Holodepth: Programmable Depth-Varying Projection via Computer-Generated Holography</a></b></div>
-                    <div><b>Dorian Chan</b>, Matthew O'Toole, Sizhuo Ma, Jian Wang</div>
-                    <div><i>ECCV 2024</i></div>
-                    <p>We explore how to build next-generation projectors that are capable of programmably projecting <b>unique content at multiple planes</b> via precisely-controlled laser light. This never-before-seen capability enables new interfaces where users see different content at different distances, and novel methods for depth sensing. Building such a system requires careful modeling, accomplished using AI-driven tools to capture the complexities of holographic light transport.</p>
+            <div class="paperc">
+                <div class="paper">
+                    <div class="paper_left"> <video width="120" autoplay loop>
+                        <source src="papers/holospeed.mp4" type="video/mp4">
+                    </video> </div>
+                    
+                    <div class="paper_right">
+                        <div><b><a href="holospeed">Holospeed: High-Speed Holographic Displays for Dynamic Content</a></b></div>
+                        <div><b>Dorian Chan</b>, Oliver Cossairt, Nathan Matsuda, Grace Kuo</div>
+                        <div><i>ICCP 2025</i></div>
+                    </div>
                 </div>
+                <p>We explore the perceptual impacts of time-multiplexed holographic displays. While traditional architectures suffer from significant blurring and strobing effects, we show that a paradigm based on treating a traditionally time-multiplexed holographic system as a <b>noisy high-speed display</b> produces artifact-free output.</p>
             </div>
-            <div class="paper">
-                <div class="paper_left"><img src="papers/concentrate.png" /></div>
-                
-                <div class="paper_right">
-                    <div><b><a href="https://dl.acm.org/doi/abs/10.1145/3610548.3618152">Light-Efficient Holographic Illumination for Continuous-Wave Time-of-Flight Imaging</a></b></div>
-                    <div><b>Dorian Chan</b>, Matthew O'Toole</div>
-                    <div><i>SIGGRAPH ASIA 2023</i></div>
-                    <p>We build new light sources for LiDAR systems, that programmably <b>concentrate</b> light using the unique properties of laser light. By intelligently redistributing light according to priors on scene content, e.g., dark versus bright objects, we can build new depth sensors that have far increased depth and dynamic range compared to traditional devices. In our experiments, our system can display patterns at 2700x the brightness of a traditional approach. </p>
+
+            <div class="paperc">
+                <div class="paper">
+                    <div class="paper_left"><img src="papers/projector_both.svg" /></div>
+                    
+                    <div class="paper_right">
+                        <div><b><a href="holodepth">Holodepth: Programmable Depth-Varying Projection via Computer-Generated Holography</a></b></div>
+                        <div><b>Dorian Chan</b>, Matthew O'Toole, Sizhuo Ma, Jian Wang</div>
+                        <div><i>ECCV 2024</i></div>
+                    </div>
                 </div>
+                <p>We explore how to build next-generation projectors that are capable of programmably projecting <b>unique content at multiple planes</b> via precisely-controlled laser light. This never-before-seen capability enables new interfaces where users see different content at different distances, and novel methods for depth sensing. Building such a system requires careful modeling, accomplished using AI-driven tools to capture the complexities of holographic light transport.</p>
             </div>
-            <div class="paper">
-                <div class="paper_left"><img src="https://imaging.cs.cmu.edu/spincam/assets/vids/teaser/rendered.gif" /></div>
-                
-                <div class="paper_right">
-                    <div><b><a href="https://imaging.cs.cmu.edu/spincam/">SpinCam: High-Speed Imaging via a Rotating Point-Spread Function</a></b></div>
-                    <div><b>Dorian Chan</b>, Mark Sheinin, Matthew O'Toole</div>
-                    <div><i>ICCV 2023</i></div>
-                    <p>We demonstrate a new methodology towards motion deblurring by designing a <b>time-varying point-spread function</b>. Along with an appropriate compressed sensing-based optimization algorithm, we can recover high-speed 192kHz videos (2x improvement over past work), suitable for tasks like motion capture, particle-image velocimetry and ballistics. </p>
+
+            <div class="paperc">
+                <div class="paper">
+                    <div class="paper_left"><img src="papers/concentrate.png" /></div>
+                    
+                    <div class="paper_right">
+                        <div><b><a href="https://dl.acm.org/doi/abs/10.1145/3610548.3618152">Light-Efficient Holographic Illumination for Continuous-Wave Time-of-Flight Imaging</a></b></div>
+                        <div><b>Dorian Chan</b>, Matthew O'Toole</div>
+                        <div><i>SIGGRAPH ASIA 2023</i></div>
+                    </div>
                 </div>
+                <p>We build new light sources for LiDAR systems, that programmably <b>concentrate</b> light using the unique properties of laser light. By intelligently redistributing light according to priors on scene content, e.g., dark versus bright objects, we can build new depth sensors that have far increased depth and dynamic range compared to traditional devices. In our experiments, our system can display patterns at 2700x the brightness of a traditional approach. </p>
             </div>
-            <div class="paper">
-                <div class="paper_left"><img src="papers/pingpong.gif" /></div>
-                
-                <div class="paper_right">
-                    <div><b><a href="https://imaging.cs.cmu.edu/impactlocalization/">Analyzing Physical Impacts using Transient Surface Wave Imaging</a></b></div>
-                    <div>Tianyuan Zhang, Mark Sheinin, <b>Dorian Chan</b>, Mark Rau, Matthew O'Toole, and Srinivasa Narasimhan </div>
-                    <div><i>CVPR 2023</i></div>
-                    <p>We show how the tiny <b>vibrations</b> captured by our previously proposed "seeing-sound" camera can be used to potentially <b>localize human-object interactions</b>. For instance, we can identify where a ping pong ball bounces on a table,  or where a user steps in a room --- all without needing to directly see the aforementioned event.</p>
+            
+            <div class="paperc">
+                <div class="paper">
+                    <div class="paper_left"><img src="https://imaging.cs.cmu.edu/spincam/assets/vids/teaser/rendered.gif" /></div>
+                    
+                    <div class="paper_right">
+                        <div><b><a href="https://imaging.cs.cmu.edu/spincam/">SpinCam: High-Speed Imaging via a Rotating Point-Spread Function</a></b></div>
+                        <div><b>Dorian Chan</b>, Mark Sheinin, Matthew O'Toole</div>
+                        <div><i>ICCV 2023</i></div>
+                    </div>
                 </div>
+                <p>We demonstrate a new methodology towards motion deblurring by designing a <b>time-varying point-spread function</b>. Along with an appropriate compressed sensing-based optimization algorithm, we can recover high-speed 192kHz videos (2x improvement over past work), suitable for tasks like motion capture, particle-image velocimetry and ballistics. </p>
             </div>
-            <div class="paper">
-                <div class="paper_left"><img src="papers/dualshutter.png" /></div>
-                
-                <div class="paper_right">
-                    <div><b><a href="https://imaging.cs.cmu.edu/vibration/">Dual-Shutter Optical Vibration Sensing</a></b></div>
-                    <div>Mark Sheinin, <b>Dorian Chan</b>, Matthew O'Toole, Srinivasa Narasimhan</div>
-                    <div><i>CVPR 2022</i> - <span style="color:red">Oral, Best Paper Honorable Mention (~Top 2 paper)!!</span></div>
-                    <p>We construct a simple camera system for <b>"seeing sound"</b>, using just a laser, a rolling-shutter and a global-shutter camera (a far cheaper configuration than standard high-speed cameras). We can use this system to separate sound sources in a room, reconstruct human voices that vibrate a bag of chips and visualize the vibrations of a tuning fork.</p>
+
+            <div class="paperc">
+                <div class="paper">
+                    <div class="paper_left"><img src="papers/pingpong.gif" /></div>
+                    
+                    <div class="paper_right">
+                        <div><b><a href="https://imaging.cs.cmu.edu/impactlocalization/">Analyzing Physical Impacts using Transient Surface Wave Imaging</a></b></div>
+                        <div>Tianyuan Zhang, Mark Sheinin, <b>Dorian Chan</b>, Mark Rau, Matthew O'Toole, and Srinivasa Narasimhan </div>
+                        <div><i>CVPR 2023</i></div>
+                    </div>
                 </div>
+                <p>We show how the tiny <b>vibrations</b> captured by our previously proposed "seeing-sound" camera can be used to potentially <b>localize human-object interactions</b>. For instance, we can identify where a ping pong ball bounces on a table,  or where a user steps in a room --- all without needing to directly see the aforementioned event.</p>
             </div>
-            <div class="paper">
-                <div class="paper_left"><img src="papers/cow.gif" /></div>
-                
-                <div class="paper_right">
-                    <div><b><a href="https://imaging.cs.cmu.edu/holocurtains/">Holocurtains: Programming Light Curtains via Binary Holography </a></b></div>
-                    <div><b>Dorian Chan</b>, Srinivasa Narasimhan, Matthew O'Toole</div>
-                    <div><i>CVPR 2022</i></div>
-                    <p>We demonstrate an approach for <b>depth-selective imaging</b>, where a camera only sees objects at a predefined distance away via holographically-manipulated laser light. Such a system enables new applications in human-robot safety, privacy-preserving cameras and optical touchscreens.</p>
+            
+            <div class="paperc">
+                <div class="paper">
+                    <div class="paper_left"><img src="papers/dualshutter.png" /></div>
+                    
+                    <div class="paper_right">
+                        <div><b><a href="https://imaging.cs.cmu.edu/vibration/">Dual-Shutter Optical Vibration Sensing</a></b></div>
+                        <div>Mark Sheinin, <b>Dorian Chan</b>, Matthew O'Toole, Srinivasa Narasimhan</div>
+                        <div><i>CVPR 2022</i> - <span style="color:red">Oral, Best Paper Honorable Mention (~Top 2 paper)!!</span></div>
+                    </div>
                 </div>
+                <p>We construct a simple camera system for <b>"seeing sound"</b>, using just a laser, a rolling-shutter and a global-shutter camera (a far cheaper configuration than standard high-speed cameras). We can use this system to separate sound sources in a room, reconstruct human voices that vibrate a bag of chips and visualize the vibrations of a tuning fork.</p>
             </div>
-            <div class="paper">
-                <div class="paper_left"><img src="papers/icon_nlos.png" /></div>
-                
-                <div class="paper_right">
-                    <div><b><a href="https://arxiv.org/abs/2008.02787">Efficient Non-Line-of-Sight Imaging from Transient Sinograms</a></b></div>
-                    <div>Mariko Isogawa, <b>Dorian Yao Chan</b>, Ye Yuan, Kris Kitani, Matthew O'Toole</div>
-                    <div><i>ECCV 2020</i></div>
-                    <p>We explore the limits of <b>"seeing around corners"</b>, by showing that a circular LiDAR scan of points can be effectively used for non-line-of-sight imaging via the projection-slice theorem or a careful construction of ADMM. Our work demonstrates explicit connections between NLOS and computed tomography, a relationship that has long been speculated upon but never before been proven.</p>
+
+            <div class="paperc">
+                <div class="paper">
+                    <div class="paper_left"><img src="papers/cow.gif" /></div>
+                    
+                    <div class="paper_right">
+                        <div><b><a href="https://imaging.cs.cmu.edu/holocurtains/">Holocurtains: Programming Light Curtains via Binary Holography </a></b></div>
+                        <div><b>Dorian Chan</b>, Srinivasa Narasimhan, Matthew O'Toole</div>
+                        <div><i>CVPR 2022</i></div>
+                    </div>
                 </div>
+                 <p>We demonstrate an approach for <b>depth-selective imaging</b>, where a camera only sees objects at a predefined distance away via holographically-manipulated laser light. Such a system enables new applications in human-robot safety, privacy-preserving cameras and optical touchscreens.</p>
             </div>
-            <div class="paper">
-                <div class="paper_left"><img src="papers/icon_hdr.png" /></div>
-                
-                <div class="paper_right">
-                    <div><b><a href="https://dl.acm.org/doi/abs/10.1145/3388770.3407415">Bound-Constrained Optimized Dynamic Range Compression</a></b></div>
-                    <div><b>Dorian Yao Chan</b>, James F. O'Brien </div>
-                    <div><i>SIGGRAPH'20 Posters</i> - <span style="color:red">ACM Student Research Competition winner!!</span></div>
-                    <p>We create a new framework for <b>high-dynamic range tonemapping</b>, that uses modern gradient-descent tools to optimally match the image perceived on a standard monitor with a desired HDR scene in-the-wild. Our approach improved perceptual quality by 4% over the previous state-of-the-art in a user study.</p>
+
+            <div class="paperc">
+                <div class="paper">
+                    <div class="paper_left"><img src="papers/icon_nlos.png" /></div>
+                    
+                    <div class="paper_right">
+                        <div><b><a href="https://arxiv.org/abs/2008.02787">Efficient Non-Line-of-Sight Imaging from Transient Sinograms</a></b></div>
+                        <div>Mariko Isogawa, <b>Dorian Yao Chan</b>, Ye Yuan, Kris Kitani, Matthew O'Toole</div>
+                        <div><i>ECCV 2020</i></div>
+                    </div>
                 </div>
+                <p>We explore the limits of <b>"seeing around corners"</b>, by showing that a circular LiDAR scan of points can be effectively used for non-line-of-sight imaging via the projection-slice theorem or a careful construction of ADMM. Our work demonstrates explicit connections between NLOS and computed tomography, a relationship that has long been speculated upon but never before been proven.</p>
             </div>
-            <div class="paper">
-                <div class="paper_left"><img src="papers/icon_bci.png" /></div>
-                
-                <div class="paper_right">
-                    <div><b><a href="https://ieeexplore.ieee.org/abstract/document/8717158">Brain-Computer Interface in Virtual Reality</a></b></div>
-                    <div>Reza Abbasi-Asl, Mohammad Keshavarzi, <b>Dorian Yao Chan</b></div>
-                    <div><i>NER'19</i></div>
-                    <p>We explore how electroencephalography devices can be used to control virtual reality devices with a thought.</p>
+
+            <div class="paperc">
+                <div class="paper">
+                    <div class="paper_left"><img src="papers/icon_hdr.png" /></div>
+                    
+                    <div class="paper_right">
+                        <div><b><a href="https://dl.acm.org/doi/abs/10.1145/3388770.3407415">Bound-Constrained Optimized Dynamic Range Compression</a></b></div>
+                        <div><b>Dorian Yao Chan</b>, James F. O'Brien </div>
+                        <div><i>SIGGRAPH'20 Posters</i> - <span style="color:red">ACM Student Research Competition winner!!</span></div>
+                    </div>
                 </div>
+                <p>We create a new framework for <b>high-dynamic range tonemapping</b>, that uses modern gradient-descent tools to optimally match the image perceived on a standard monitor with a desired HDR scene in-the-wild. Our approach improved perceptual quality by 4% over the previous state-of-the-art in a user study.</p>
             </div>
-            <div class="paper">
-                <div class="paper_left"><img src="papers/icon_svbrdf.png" /></div>
-                
-                <div class="paper_right">
-                    <div><b><a href="http://graphics.berkeley.edu/papers/Albert-ASV-2018-06/">Approximate svBRDF Estimation From Mobile Phone Video</a></b></div>
-                    <div>Rachel A. Albert, <b>Dorian Yao Chan</b>, Dan B Goldman, James F. O'Brien </div>
-                    <div><i>EGSR 2018</i></div>
-                    <p>We develop a new methodology for digitizing real-world materials for later rendering using just mobile phone videos.</p>
+
+            <div class="paperc">
+                <div class="paper">
+                    <div class="paper_left"><img src="papers/icon_bci.png" /></div>
+                    
+                    <div class="paper_right">
+                        <div><b><a href="https://ieeexplore.ieee.org/abstract/document/8717158">Brain-Computer Interface in Virtual Reality</a></b></div>
+                        <div>Reza Abbasi-Asl, Mohammad Keshavarzi, <b>Dorian Yao Chan</b></div>
+                        <div><i>NER'19</i></div>
+                    </div>
                 </div>
+                <p>We explore how electroencephalography devices can be used to control virtual reality devices with a thought.</p>
+            </div>
+
+            <div class="paperc">
+                <div class="paper">
+                    <div class="paper_left"><img src="papers/icon_svbrdf.png" /></div>
+                    
+                    <div class="paper_right">
+                        <div><b><a href="http://graphics.berkeley.edu/papers/Albert-ASV-2018-06/">Approximate svBRDF Estimation From Mobile Phone Video</a></b></div>
+                        <div>Rachel A. Albert, <b>Dorian Yao Chan</b>, Dan B Goldman, James F. O'Brien </div>
+                        <div><i>EGSR 2018</i></div>
+                    </div>
+                </div>
+                <p>We develop a new methodology for digitizing real-world materials for later rendering using just mobile phone videos.</p>
             </div>
 
             <!-- <h3>Other:</h3>

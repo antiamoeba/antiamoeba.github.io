@@ -1,0 +1,316 @@
+<html>
+
+<head>
+    <title>Skyline scene (simulated) - Holospeed</title>
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <style>
+        video {
+            width: 80%
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text-center bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./index.html">Home</a>
+                    </li>
+                    
+                        <li>
+                            <a class="nav-link" href="./ball.html">Basketball scene (real)</span></a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-link" href="./highway.html">Highway scene (simulated)</span></a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-link" href="./jungle.html">Jungle scene (simulated)</span></a>
+                        </li>
+                    
+                        <li>
+                            <a class="nav-link" href="./sky.html">Skyline scene (simulated)</span></a>
+                        </li>
+                    
+                </ul>
+            </div>
+            
+        </nav>
+        <div class="container py-5">
+            <h1>Skyline scene (simulated)</h1>
+        </div>
+    </div>
+    <div class="container">
+        <br>
+        <p>When the human eye follows a moving object, we expect to see a sharp image. Conversely, when object motion does not match our eye's motion, we expect motion blur. However, traditional time-multiplexing approaches for holographic displays fail in both of these regards. Objects our eyes track appear blurry thanks to sample-and-hold blur, while other objects produce phantom copies thanks to stroboscopic effects.</p>
+            
+        <p>By incorporating motion-aware optimization, we can ensure sharp images appear when our eye tracks a moving object. Additionally, with high-speed regularization, motion the eye does not follow devolves gracefully into natural motion blur. In practice, if we use the wrong trajectory in our motion-aware optimization, artifacts can again occur. Our stochastic and kernel approaches let us handle multiple potential eye motions, but the kernel approach degrades without high-speed regularization. </p>
+
+        <p>To visualize these effects, we render high-speed videos of what a human would perceive. Here, we show a 1/60th second snippet of these videos in slow motion. Without high-speed regularization, we assume that 24 SLM patterns, displayed at 1440 FPS, are used to create one output frame. We assume an equivalent persistence-of-vision duration for the high-speed regularization setting.</p>
+
+        <h5>Methods (the videos should update with the selected option):</h5>
+        <div class="form-check">
+            <input class="form-check-input" value="gt" type="radio" name="methodRadio" id="gt" checked>
+            <label class="form-check-label" for="gt">
+                Ground truth
+            </label>
+        </div>
+        <div>Without high-speed regularization:</div>
+        <div class="form-check">
+            <input class="form-check-input" value="joint_lowspeed_static" type="radio" name="methodRadio" id="tm">
+            <label class="form-check-label" for="tm">
+                Traditional joint multiplexing
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" value="joint_lowspeed_line_0_30" type="radio" name="methodRadio"
+                id="one_lsr">
+            <label class="form-check-label" for="one_lsr">
+                Motion aware, optimized for eye tracking bird motion
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" value="joint_lowspeed_line_0_-9" type="radio" name="methodRadio"
+                id="two_lsr">
+            <label class="form-check-label" for="two_lsr">
+                Motion aware, optimized for eye tracking plane motion
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" value="joint_lowspeed_fan_estrand" type="radio" name="methodRadio"
+                id="stochastic_lsr">
+            <label class="form-check-label" for="stochastic_lsr">
+                Motion aware, stochastic
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" value="joint_lowspeed_fan_est" type="radio" name="methodRadio"
+                id="kernel_lsr">
+            <label class="form-check-label" for="kernel_lsr">
+                Motion aware, kernel
+            </label>
+        </div>
+
+        <div>With high-speed regularization:</div>
+        <div class="form-check">
+            <input class="form-check-input" value="ind_highspeed" type="radio" name="methodRadio" id="ind">
+            <label class="form-check-label" for="ind">
+                Independent
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" value="sequential_highspeed_line_0_30" type="radio" name="methodRadio"
+                id="one_hsr">
+            <label class="form-check-label" for="one_hsr">
+                Motion aware, optimized for eye tracking bird motion
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" value="sequential_highspeed_line_0_-9" type="radio" name="methodRadio"
+                id="two_hsr">
+            <label class="form-check-label" for="two_hsr">
+                Motion aware, optimized for eye tracking plane motion
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" value="sequential_highspeed_fan_estrand" type="radio" name="methodRadio"
+                id="stochastic_hsr">
+            <label class="form-check-label" for="stochastic_hsr">
+                Motion aware, stochastic
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" value="sequential_highspeed_fan_est" type="radio" name="methodRadio"
+                id="kernel_hsr">
+            <label class="form-check-label" for="kernel_hsr">
+                Motion aware, kernel
+            </label>
+        </div>
+
+        <br>
+        <h5>Eye tracks motion of the bird:</h5>
+        <div class="row" style="text-align: center">
+            <div class="col-sm">
+                <video controls autoplay loop muted id="one_one">
+                    <source src="./assets/videos/sky/line_0_30/line_0_30_gt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div>Focused at bird</div>
+                <div id="blurry_1">(appears blurry, when should be sharp)</div>
+                <div id="halo_1">(produces slight halos, when should be sharp)</div>
+                <div id="sharp_1">(sharp as desired)</div>
+                <div class="lowcontrast">(low contrast)</div>
+            </div>
+            <div class="col-sm">
+                <video controls autoplay loop muted id="one_two">
+                    <source src="./assets/videos/sky/line_0_30/line_0_-9_gt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div>Focused at plane</div>
+                <div id="strobing_1">(produces strobing effects, when should be motion-blurred)</div>
+                <div id="clean_1">(no strobing, natural motion blur)</div>
+                <div class="lowcontrast">(low contrast)</div>
+            </div>
+        </div>
+        <h5>Eye tracks motion of the plane:</h5>
+        <div class="row" style="text-align: center">
+            <div class="col-sm">
+                <video controls autoplay loop muted id="two_one">
+                    <source src="./assets/videos/sky/line_0_-9/line_0_30_gt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div>Focused at bird</div>
+                <div id="strobing_2">(produces strobing effects, when should be motion-blurred)</div>
+                <div id="clean_2">(no strobing, natural motion blur)</div>
+                <div class="lowcontrast">(low contrast)</div>
+            </div>
+            <div class="col-sm">
+                <video controls autoplay loop muted id="two_two">
+                    <source src="./assets/videos/sky/line_0_-9/line_0_-9_gt.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div>Focused at plane</div>
+                <div id="blurry_2">(appears blurry, when should be sharp)</div>
+                <div id="halo_2">(produces slight halos, when should be sharp)</div>
+                <div id="sharp_2">(sharp as desired)</div>
+                <div class="lowcontrast">(low contrast, some speckle)</div>
+            </div>
+        </div>
+        <br>
+        <p>If any playback errors occur, try switching between the different methods a couple times.</p>
+    </div>
+    <script>
+        const blurry1 = document.getElementById('blurry_1');
+        const blurry2 = document.getElementById("blurry_2");
+        const strobing1 = document.getElementById('strobing_1');
+        const strobing2 = document.getElementById('strobing_2');
+        const sharp1 = document.getElementById('sharp_1');
+        const sharp2 = document.getElementById("sharp_2");
+        const clean1 = document.getElementById('clean_1');
+        const clean2 = document.getElementById("clean_2");
+        const halo1 = document.getElementById('halo_1');
+        const halo2 = document.getElementById("halo_2");
+        const lowc = document.getElementsByClassName("lowcontrast");
+
+        function hide() {
+            blurry1.hidden = true;
+            blurry2.hidden = true;
+            strobing1.hidden = true;
+            strobing2.hidden = true;
+            sharp1.hidden = true;
+            sharp2.hidden = true;
+            clean1.hidden = true;
+            clean2.hidden = true;
+            halo1.hidden = true;
+            halo2.hidden = true;
+
+            hide_lowc();
+        }
+
+        function hide_lowc() {
+            for (let i = 0; i < lowc.length; i++) {
+                lowc[i].hidden = true;
+            }
+        }
+        function show_lowc() {
+            for (let i = 0; i < lowc.length; i++) {
+                lowc[i].hidden = false;
+            }
+        }
+        hide();
+
+        
+
+
+        const video11 = document.getElementById('one_one');
+        const video12 = document.getElementById("one_two");
+        const video21 = document.getElementById('two_one');
+        const video22 = document.getElementById('two_two');
+
+        const radioButtons = document.querySelectorAll('input[name="methodRadio"]');
+
+        radioButtons.forEach(radioButton => {
+            radioButton.addEventListener('change', function () {
+                if (this.checked) {
+                    // Get the value of the selected radio button
+                    //const selectedValue = this.value;
+                    console.log('Selected value:', this.value);
+
+                    hide();
+
+
+                    video11.src = "./assets/videos/sky/line_0_30/line_0_30_" + this.value + ".mp4";
+                    video12.src = "./assets/videos/sky/line_0_30/line_0_-9_" + this.value + ".mp4";
+                    video21.src = "./assets/videos/sky/line_0_-9/line_0_30_" + this.value + ".mp4";
+                    video22.src = "./assets/videos/sky/line_0_-9/line_0_-9_" + this.value + ".mp4";
+                    video11.play();
+                    video12.play()
+                    video21.play()
+                    video22.play()
+
+
+                    if (this.value.includes("lowspeed")) {
+                        if (this.id.includes("one")) {
+                            sharp1.hidden = false;
+                            strobing1.hidden = false;
+                            blurry2.hidden = false;
+                            clean2.hidden = false;
+                        }
+                        else if (this.id.includes("two")) {
+                            sharp2.hidden = false;
+                            strobing2.hidden = false;
+                            blurry1.hidden = false;
+                            clean1.hidden = false;
+                        }
+                        else if (this.id == "tm") {
+                            blurry1.hidden = false;
+                            blurry2.hidden = false;
+                            strobing1.hidden = false;
+                            strobing2.hidden = false;
+                        }
+                        else if (this.id.includes("stochastic")) {
+                            sharp1.hidden = false;
+                            sharp2.hidden = false;
+                            strobing1.hidden = false;
+                            strobing2.hidden = false;
+                        }
+                    }
+                    if (this.value.includes("highspeed")) {
+                        if (this.id.includes("one")) {
+                            sharp1.hidden = false;
+                            clean1.hidden = false;
+                            halo2.hidden = false;
+                            clean2.hidden = false;
+                        }
+                        else if (this.id.includes("two")) {
+                            sharp2.hidden = false;
+                            clean2.hidden = false;
+                            halo1.hidden = false;
+                            clean1.hidden = false;
+                        }
+                        else if (this.id.includes("stochastic")) {
+                            sharp1.hidden = false;
+                            sharp2.hidden = false;
+                            clean1.hidden = false;
+                            clean2.hidden = false;
+                        }
+                        else if (this.id.includes("kernel")) {
+                            sharp1.hidden = false;
+                            sharp2.hidden = false;
+                            clean1.hidden = false;
+                            clean2.hidden = false;
+                        } else if (this.id == "ind") {
+                            show_lowc();
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Holospeed: High-Speed Holographic Displays for Dynamic Content</title>
+    <!-- <link rel="icon" href="https://imaging.cs.cmu.edu/wp-content/uploads/2020/10/favicon.png" sizes="32x32" />
+    <link rel="icon" href="https://imaging.cs.cmu.edu/wp-content/uploads/2020/10/favicon.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://imaging.cs.cmu.edu/wp-content/uploads/2020/10/favicon.png" /> -->
+
+    <!-- <link href="web/bootstrap.css" rel="stylesheet"/> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="web/main.css" rel="stylesheet"/>
+
+    <style>
+        #navbar_content > li a:hover:not(#home) {
+            background-color: #111;
+        }
+
+        #home {
+            background-color: #2c5fb0;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="text-center bg-body-tertiary">
+        <div class="container py-5">
+            <h1>Holospeed: High-Speed Holographic Displays for Dynamic Content</h1>
+            <p class="fs-5"><a href="https://dorianchan.com/" target="_blank">Dorian Chan</a>, <a href="https://compphotolab.northwestern.edu/people/oliver-ollie-cossairt/"  target="_blank">Oliver Cossairt</a>, <a href="https://www.nathanmatsuda.com/" target="_blank">Nathan Matsuda</a>, and <a href="https://grace-kuo.com/" target="_blank">Grace Kuo</a>
+            </p>
+            <h4>ICCP 2025</h4>
+            <p><a class="btn btn-dark btn-lg" href="mainpaper.pdf" role="button">Paper</a> <a class="btn btn-dark btn-lg" href="supplement.pdf" role="button">Supplement</a> <a class="btn btn-dark btn-lg" href="site_vis" role="button" target="_blank">Video visualizations</a></p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="teaser py-4">
+            <figure class="">
+                <img src="assets/teaser.png" />
+                <!-- <figcaption>We leverage a holographic projector for forming depth-varying patterns. In other words, we can program unique content at multiple depths per pixel simultaneously. This capability could be useful for future interfaces, depth sensing, and more.</figcaption> -->
+            </figure>
+        </div>
+        <p class="fs-5 py-5" style="text-align: center;"><b>TL;DR:</b> Time multiplexing is a commonly used modality for mitigating the speckle of holographic displays. Hower, such systems produce significant perceptual artifacts when displaying dynamic content, thanks to a fundamental mismatch between expected and displayed motion. To tackle these problems, we propose a paradigm of <b>high-speed display</b> when using the fast SLMs traditionally used for time multiplexing. By accurately modeling the content perceived by the eye in such a setting, our proposed approach is able to display speckle-free, high-contrast dynamics that are free of motion artifacts.</p>
+
+       <!-- <p class="fs-5 py-5"><b>Abstract:</b> Holographic displays are plagued by speckle&#x2014;noise-like artifacts caused by the coherent interference of laser light. To mitigate this challenge, state-of-the-art systems use time multiplexing on fast spatial light modulators (SLMs) to temporally "average out" these effects. In our work, we observe that such an approach struggles in practice in the context of dynamic content, manifesting motion blur and stroboscopic artifacts thanks to a fundamental mismatch between expected and displayed motion. To tackle this challenge, we propose a paradigm of holographic high-speed display, where we use the underlying fast SLM to reproduce target content that changes at the same framerate. Approaches built using this paradigm mitigate motion blur and strobing, and simultaneously minimize speckle and maximize contrast with the right modeling. We demonstrate such a methodology in both simulation and a real system.</p> -->
+        
+
+       <h2>The Problem</h2>
+       <p>Holographic displays are an attractive choice for future AR/VR devices. By illuminating a spatial-light modulator (SLM for short) with laser light, such systems can naturally display 3D content with accurate focus cues in an extremely compact form factor, addressing key limitations with current AR/VR display architectures. However, holographic displays are not without their challenges. Chief among them is <b>speckle</b>&#x2014;noise-like artifacts caused by the coherent interference of laser light. Intuitively, these effects occur because 2D control over the propagation of laser light is used to reproduce 3D content&#x2014;such a mismatch in degrees of freedom results in speckle effects.</p>
+       <div class="center"><img src="assets/hd.png"/></div>
+       <div class="center"><img src="assets/speckle.png"/></div>
+
+       <p>To tackle these problems, a variety of solutions have been proposed in the research literature, but perhaps the most enduring of these has been so-called <b>time multiplexing</b>. In short, to reproduce a single output frame, multiple differently-speckled versions of the target are displayed. With a sufficiently fast SLM, only the despeckled average of these frames will be perceived by the user. Given the rapidly increasing availability of fast SLMs, we expect time multiplexing to be the despeckling modality of choice for future holographic architectures.</p>
+       <div class="center"><img src="assets/tm.png"/></div>
+       
+       <p>While effective, we observe a number of perceptual artifacts that may appear when using such systems in practice for dynamic content. For clarity, let's consider a scenario where an object moves relative to a user (or the user moves relative to a static object) in the real world. If we want to study the detail or read the text of this moving object, our eye will actually rotate to <i>track</i> the continuous movement, such that the image of this object remains stationary on the retina&#x2014;in the real world, this results in a sharp, perceived image despite object motion.</p>
+       <div class="center"><img src="assets/gtblur.png"/></div>
+
+       <p>Now, consider the case of a time-multiplexed holographic display. Under such an architecture, the display will first show a set of noisy frames for the moving object at one location, and then another set of frames for the second location, and so forth. However, the user's eye will still rotate continuously, as our visual system expects the continuous dynamics of real-world moving objects. What this means is that the display will actually be time-multiplexing this moving object at <i>incorrect locations</i> relative to the user's eye. This mismatch between eye motion and displayed content manifests <b>motion blur</b>.</p>
+       <div class="center"><img src="assets/tmblur.png"/></div>
+
+       <p>A slightly different scenario occurs when the eye <i>does not track</i> the motion of an object. In such a setting, in the real world, this object would move continuously relative to the user's eye, manifesting in natural motion blur.</p>
+       <div class="center"><img src="assets/gtstrobe.png"/></div>
+
+        <p>However, in a time-multiplexed holographic display, this object will be displayed at a discrete set of locations. What this means is that sharp, <b>stroboscopic</b> artifacts appear with fast enough motion, where ghost copies of the moving object appear visually.</p>
+       <div class="center"><img src="assets/tmstrobe.png"/></div>
+
+       <p>Without getting too much into the perceptual weeds, both of these effects are unfortunately well known in AR/VR literature to induce nausea and visual discomfort. Today's AR/VR displays are carefuly architected to avoid such artifacts, e.g., with <a href="https://blurbusters.com/faq/oled-motion-blur/">short persistence times</a> and increasingly fast displays. Unfortunately, if we do not address such issues in holographic displays, these effects could become a major showstopper towards the integration of holographic displays into real AR/VR devices.</p>
+
+       <h2>Our Proposed Solution</h2>
+       <p>To tackle these challenges, in our work, we propose a paradigm of <b>high-speed display</b>. Intuitively, if we had a perfect high-speed display, we would be able to perfectly replicate real world moving objects, free of any perceptual artifacts. Obviously such a system does not exist, but what we do have in the case of holographic time multiplexing is a fast SLM that produces speckled output, i.e., a high-speed, but noisy display. It turns out that if we use this noisy high-speed system to directly display high-speed content, we observe motion-artifact free content, but it struggles with contrast and speckle convergence as it does not consider the interplay between different output frames. We term such an approach "independent high-speed holographic display".</p>
+        <div class="center"><img src="assets/indhs.png"/></div>
+
+        <p>To mitigate these effects, we propose building a model for the <i>perceived high-speed video</i>, that accounts for both the eye's persistence-of-vision as well as motion. Then, given this model, we can optimize for the set of output frames that best perceptually reproduces the target video:</p>
+        <div class="center"><img src="assets/opt.png"/></div>
+
+        <p>In practice, such an approach needs accurate knowledge of eye motion; however, real-world eye trackers can be noisy, and some devices may not have eye trackers installed in the first place. Thus, we propose approaches that can handle <i>distributions</i> of eye motion instead --- one particularly effective solution, as we mathematically express below, involves simply optimizing over multiple eye motions at a time. We term this particular approach "stochastic motion-aware high-speed holographic display", as we stochastically select one eye motion per iteration of optimization. We show that such distributions may be estimatable directly from the target videos if eye tracking is not available.</p>
+
+        <div class="center"><img src="assets/stoch.png"/></div>
+
+        <h2>Results</h2>
+        <p>We start with a scene where the user moves relative to a static road sign. Traditional time multiplexing results in significant motion blur when the eye tracks this sign, and ghosting artifacts when it does not. Independent high-speed display mitigates these artifacts, but suffers from loss in contrast and still-visible speckle. Our stochastic motion-aware approach still avoids motion artifacts, but has much improved contrast and speckle convergence.</p>
+        <div class="center"><img src="assets/sign.png"/></div>
+
+        <p>In this scene, a ball moves relative to the background to simulate a VR basketball game. Traditional time multiplexing results in blurry lines on the basketball when the eye tracks it, and repeated lines when it does not. The independent high-speed display approach yields more similar results to expected perception, but the contrast between the dark lines and orange ball is lost. Our stochastic motion-aware approach remedies these issues.</p>
+        <div class="center"><img src="assets/ball.png"/></div>
+
+        <p>A bird flies across the screen in this scene. During time multiplexing, the typical motion blur and stroboscopic artifacts appear as shown by the bird's eye. However, stroboscopic effects also appear in the wings when the eye tracks the bird, as the wings do not follow the exact overall motion of the bird. Independent high-speed display avoids all of these issues, but at the cost of muted colors in the feather pattern and background buildings. Our stochastic motion-aware approach avoids all of these problems.</p>
+        <div class="center"><img src="assets/sky.png"/></div>
+        
+        <p>Please refer to <a href="site_vis">here</a> for video visualizations!</p>
+    </div>
+  </body>
+</html>
