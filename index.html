@@ -50,6 +50,12 @@
                 object-fit: cover;
                 border: 1px solid gray;
             }
+            .paper_left > video {
+                width: 120px;
+                max-height: 100px;
+                object-fit: cover;
+                border: 1px solid gray;
+            }
             .paperc > p {
                 color: #666666;
             }
@@ -86,7 +92,7 @@
             </div>
             <br/>
             
-            <p>I'm an AI Resident at Apple. I recently received my PhD from the Computer Science Department at Carnegie Mellon University, where I was advised by the wonderful <a href="http://www.cs.cmu.edu/~motoole2/">Matthew O'Toole</a>. I've also previously worked as a research intern at Meta Reality Labs Research and Snap Research.</p>
+            <p>I'm a researcher at Apple MLR. I recently received my PhD from the Computer Science Department at Carnegie Mellon University, where I was advised by the wonderful <a href="http://www.cs.cmu.edu/~motoole2/">Matthew O'Toole</a>. I've also previously worked as a research intern at Meta Reality Labs Research and Snap Research.</p>
 
             <p>My research interests broadly span 3D/4D generation, computational photography and computational displays. At a very high level, I try to think deeply about what a camera can and cannot capture, and how we can fill the gap with computational tools or novel hardware. My work has been recognized with the <a href="https://cvpr2022.thecvf.com/cvpr-2022-paper-awards">Best Paper Honorable Mention Award at CVPR 2022</a>, and  <a href="https://s2020.siggraph.org/conference/program-events/organization-events/student-research-competition/">1st place at the SIGGRAPH 2020 Student Research Competition</a>. I have also served as a reviewer for CVPR, ICCV, ECCV, TOG, ICCP and TCI.</p>
 
@@ -96,10 +102,37 @@
             <p>drop me a line: <b>dorianychan@gmail.com</b></p>
             
             <!-- <p><b style="color:red">I am looking for academic or industry jobs starting Summer or Fall 2025. Let me know if you have any leads!</b></p> -->
+            <hr/>
             <h3>Some of my past work:</h3>
             <div class="paperc">
                 <div class="paper">
-                    <div class="paper_left"><img src="papers/lito.gif" /></div>
+                    <div class="paper_left"><video autoplay loop><source src="papers/velox.mp4" type="video/mp4"></video></div>
+                    
+                    <div class="paper_right">
+                        <div><b><a href="https://machinelearning.apple.com/research/velox">Velox: Learning Representations of 4D Geometry and Appearance</a></b></div>
+                        <div>Anagh Malik, <b>Dorian Chan</b>, Xiaoming Zhao, David B. Lindell, Oncel Tuzel, Jen-Hao Rick Chang</div>
+                        <div><i>CVPR 2026</i></div>
+                    </div>
+                </div>
+                <p>We build a latent representation for 4D content that enables effective generation, simulation and tracking.</p>
+            </div>
+
+            <div class="paperc">
+                <div class="paper">
+                    <div class="paper_left"><img src="papers/cspi.png" /></div>
+                    
+                    <div class="paper_right">
+                        <div><b><a href="/">Computational Speckle Pattern Interferometry</a></b></div>
+                        <div>Shengxi Wu, Sophia Yang, <b>Dorian Chan</b>, Matthew O'Toole</div>
+                        <div><i>CVPR 2026</i></div>
+                    </div>
+                </div>
+                <p>We propose a computational approach for decoding dense surface motion from speckle interferometric measurements, inspired by classic computer vision approaches.</p>
+            </div>
+
+            <div class="paperc">
+                <div class="paper">
+                    <div class="paper_left"><video autoplay loop><source src="papers/lito.mp4" type="video/mp4"></video></div>
                     
                     <div class="paper_right">
                         <div><b><a href="https://apple.github.io/ml-lito/">LiTo: Surface Light Field Tokenization</a></b></div>
